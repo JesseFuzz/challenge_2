@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'my_home_page_teste.dart';
+import 'pages/my_home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           },
         ),
         textTheme: GoogleFonts.robotoTextTheme(),
-        scaffoldBackgroundColor: const Color.fromARGB(242, 242, 242, 1000),
+        //scaffoldBackgroundColor: const Color.fromARGB(242, 242, 242, 1000),
       ),
-      home: const MyHomePageTeste(),
+      home: const MyHomePage(),
     );
   }
 }
