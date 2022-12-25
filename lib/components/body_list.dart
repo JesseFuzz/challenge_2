@@ -19,8 +19,9 @@ class MyBody extends StatelessWidget {
         color: const Color.fromARGB(242, 242, 242, 1000),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 350, vertical: 347),
-        //child: Column(children: []),
+        padding: const EdgeInsets.symmetric(horizontal: 350, vertical: 320),
+        child: Column(
+            children: [listRow], crossAxisAlignment: CrossAxisAlignment.start),
       ),
     );
   }
