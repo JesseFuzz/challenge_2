@@ -8,12 +8,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        // appBar: PreferredSize(
-        //   preferredSize: Size.fromHeight(100),
-        //   child: MyAppBar(
-        //     location: 'Cameron St., Boston',
-        //   ),
-        // ),
-        );
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: MyAppBar(
+          location: 'Cameron St., Boston',
+        ),
+      ),
+    );
   }
 }
