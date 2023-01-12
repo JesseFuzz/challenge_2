@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String location;
-  const MyAppBar({super.key, required this.location});
+  const MyAppBar({super.key});
   @override
   Size get preferredSize => const Size.fromHeight(100);
 
@@ -22,18 +21,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 'Location',
                 style: TextStyle(
                   fontSize: 15,
                   color: Color.fromRGBO(0, 0, 0, 0.5),
                 ),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: 5),
               Text(
-                location,
-                style: const TextStyle(
+                'Cameron St., Boston',
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
