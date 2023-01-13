@@ -23,11 +23,11 @@ class _FilterButtonComponentState extends State<FilterButtonComponent> {
           return Container(
             margin: const EdgeInsets.only(
               left: 27,
-              top: 25,
+              top: 20,
               bottom: 5,
             ),
             padding: const EdgeInsets.only(
-              right: 5,
+              right: 10,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
