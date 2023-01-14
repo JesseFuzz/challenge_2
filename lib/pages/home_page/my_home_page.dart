@@ -1,4 +1,4 @@
-import 'package:desafio_2/pages/home_page/components/pet_item_list_component.dart';
+import 'package:desafio_2/pages/home_page/components/character_item_list_component.dart';
 import 'package:flutter/material.dart';
 
 import 'components/app_bar.dart';
@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
             children: const [
               FilterButtonComponent(),
               SizedBox(height: 10),
-              PetItemListComponent()
+              CharacterItemListComponent()
             ],
           ),
         ),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PetItemListComponent extends StatefulWidget {
-  const PetItemListComponent({super.key});
+class CharacterItemListComponent extends StatefulWidget {
+  const CharacterItemListComponent({super.key});
 
   @override
-  State<PetItemListComponent> createState() => _PetItemListComponentState();
+  State<CharacterItemListComponent> createState() =>
+      _CharacterItemListComponentState();
 }
 
-class _PetItemListComponentState extends State<PetItemListComponent> {
+class _CharacterItemListComponentState
+    extends State<CharacterItemListComponent> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,7 +37,7 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: const DecorationImage(
-                        image: AssetImage('assets/filhote.jpg'),
+                        image: AssetImage('assets/michael.jpeg'),
                         fit: BoxFit.cover,
                       ),
                     ),

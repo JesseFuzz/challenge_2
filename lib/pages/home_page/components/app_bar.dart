@@ -31,7 +31,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               SizedBox(height: 5),
               Text(
-                'Cameron St., Boston',
+                'Dunder Mifflin, Pennsylvania',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
