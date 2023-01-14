@@ -1,48 +1,41 @@
 import '../models/the_office_character_model.dart';
 
-class TheOfficeCharacterMock extends TheOfficeCharacterModel {
+class TheOfficeCharacterMock {
   List<TheOfficeCharacterModel> dummyCharacters = [
     TheOfficeCharacterModel(
-      'Michael Scott',
-      'assets/michael.jpeg',
-      'Regional Manager',
-      '57 years old',
-      '2.5 kms away',
+      name: 'Michael Scott',
+      imageAssetPath: 'assets/michael.jpeg',
+      position: 'Regional Manager',
+      age: '57 years old',
+      location: '2.5 kms away',
     ),
     TheOfficeCharacterModel(
-      'Dwight Schrute',
-      'assets/dwight.jpeg',
-      'Assistant to Regional Manager',
-      '52 years old',
-      '2.6 kms away',
+      name: 'Dwight Schrute',
+      imageAssetPath: 'assets/dwight.jpeg',
+      position: 'Asst. Regional Manager',
+      age: '52 years old',
+      location: '2.6 kms away',
     ),
     TheOfficeCharacterModel(
-      'Jan Levinson',
-      'assets/jan.jpeg',
-      'Vice President of Northeast Sales',
-      '54 years old',
-      '2.9 kms away',
+      name: 'Jan Levinson',
+      imageAssetPath: 'assets/jan.jpeg',
+      position: 'Vice Pres. of N.E Sales',
+      age: '54 years old',
+      location: '2.9 kms away',
     ),
     TheOfficeCharacterModel(
-      'Pam Beesly',
-      'assets/pam.jpeg',
-      'Receptionist',
-      '43 years old',
-      '3,1 kms away',
+      name: 'Pam Beesly',
+      imageAssetPath: 'assets/pam.jpeg',
+      position: 'Receptionist',
+      age: '43 years old',
+      location: '3,1 kms away',
     ),
     TheOfficeCharacterModel(
-      'Kevin Malone',
-      'assets/kevin.jpeg',
-      'Accountant',
-      '50 years old',
-      '2.5 kms away',
+      name: 'Kevin Malone',
+      imageAssetPath: 'assets/kevin.jpeg',
+      position: 'Accountant',
+      age: '50 years old',
+      location: '2.5 kms away',
     ),
   ];
-  TheOfficeCharacterMock(
-    super.name,
-    super.imageAssetPath,
-    super.role,
-    super.age,
-    super.billing,
-  );
 }

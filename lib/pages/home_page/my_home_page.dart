@@ -1,6 +1,7 @@
 import 'package:desafio_2/pages/home_page/components/character_item_list_component.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/the_office_character_mock.dart';
 import 'components/app_bar.dart';
 import 'components/filter_button_component.dart';
 
@@ -10,6 +11,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: const MyAppBar(),
       body: SizedBox(
@@ -20,10 +22,11 @@ class MyHomePage extends StatelessWidget {
             color: const Color(0xFFF2F2F2),
           ),
           child: Column(
-            children: const [
-              FilterButtonComponent(),
-              SizedBox(height: 10),
-              CharacterItemListComponent()
+            children: [
+              const FilterButtonComponent(),
+              const SizedBox(height: 10),
+              CharacterItemListComponent(
+                  characterList: TheOfficeCharacterMock()),
             ],
           ),
         ),
