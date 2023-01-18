@@ -2,6 +2,7 @@ import 'package:desafio_2/pages/home_page/components/character_item_list_compone
 import 'package:flutter/material.dart';
 
 import '../../data/the_office_character_mock.dart';
+import '../../data/the_office_filter_mock.dart';
 import 'components/app_bar.dart';
 import 'components/filter_button_component.dart';
 
@@ -23,10 +24,11 @@ class MyHomePage extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const FilterButtonComponent(),
+              FilterButtonComponent(filterList: TheOfficeFilterMock()),
               const SizedBox(height: 10),
               CharacterItemListComponent(
-                  characterList: TheOfficeCharacterMock()),
+                characterList: TheOfficeCharacterMock(),
+              ),
             ],
           ),
         ),

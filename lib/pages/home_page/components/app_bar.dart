@@ -15,7 +15,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             iconSize: 40,
             onPressed: () {},
             icon: Image.asset(
-              //'assets/drawer.jpeg',
               'assets/menu.png',
             ),
           ),
@@ -31,7 +30,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               SizedBox(height: 5),
               Text(
-                'Dunder Mifflin, Pennsylvania',
+                'São Paulo, Brasil',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

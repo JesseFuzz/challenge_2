@@ -64,7 +64,7 @@ class _CharacterItemListComponentState
                         height: 9,
                       ),
                       Text(
-                        widget.characterList.dummyCharacters[index].position,
+                        widget.characterList.dummyCharacters[index].breed,
                         style: const TextStyle(
                           fontSize: 15,
                           color: Color(0xFF686766),
@@ -74,7 +74,8 @@ class _CharacterItemListComponentState
                         height: 6,
                       ),
                       Text(
-                        widget.characterList.dummyCharacters[index].age,
+                        widget.characterList.dummyCharacters[index].sex +
+                            widget.characterList.dummyCharacters[index].age,
                         style: const TextStyle(
                           fontSize: 15,
                           color: Color(0xFFB5B5B5),
@@ -84,15 +85,16 @@ class _CharacterItemListComponentState
                         height: 15,
                       ),
                       Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.location_on_sharp,
                             color: Color(0xFFFF5F50),
                             size: 15,
                           ),
                           Text(
-                            '2.5 km away',
-                            style: TextStyle(
+                            widget
+                                .characterList.dummyCharacters[index].location,
+                            style: const TextStyle(
                               fontSize: 15,
                               color: Color(0xFFB8B8B8),
                             ),
@@ -110,10 +112,12 @@ class _CharacterItemListComponentState
                               ? const Icon(
                                   Icons.favorite,
                                   color: Color(0xFFFF5F50),
+                                  size: 25,
                                 )
                               : const Icon(
                                   Icons.favorite_border,
                                   color: Color(0xFFBABABA),
+                                  size: 25,
                                 ),
                       onPressed: () {
                         setState(
