@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/the_office_filter_mock.dart';
+
 class FilterButtonComponent extends StatefulWidget {
-  const FilterButtonComponent({
-    super.key,
-  });
+  final TheOfficeFilterMock filterList;
+
+  const FilterButtonComponent({super.key, required this.filterList});
 
   @override
   State<FilterButtonComponent> createState() => _FilterButtonComponentState();
@@ -18,7 +20,7 @@ class _FilterButtonComponentState extends State<FilterButtonComponent> {
       width: screenSize.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 100,
+        itemCount: widget.filterList.dummyFilters.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             margin: const EdgeInsets.only(
@@ -27,24 +29,43 @@ class _FilterButtonComponentState extends State<FilterButtonComponent> {
               bottom: 5,
             ),
             padding: const EdgeInsets.only(
-              right: 10,
+              right: 5,
+              left: 10,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: const Color(0xFFFF5F50),
+              color: widget.filterList.dummyFilters[index].isSelected
+                  ? const Color(0xFFFF5F50)
+                  : Colors.white,
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                setState(
+                  () {
+                    widget.filterList.dummyFilters[index].isSelected =
+                        !widget.filterList.dummyFilters[index].isSelected;
+                  },
+                );
+              },
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite, color: Colors.white),
-                  ),
-                  const Text(
-                    'Filter',
-                    style: TextStyle(
+                  if (widget.filterList.dummyFilters[index].isSelected)
+                    Icon(
+                      widget.filterList.dummyFilters[index].icon.icon,
                       color: Colors.white,
+                    )
+                  else
+                    Icon(
+                      widget.filterList.dummyFilters[index].icon.icon,
+                      color: Colors.grey,
+                    ),
+                  const SizedBox(width: 5),
+                  Text(
+                    widget.filterList.dummyFilters[index].type,
+                    style: TextStyle(
+                      color: widget.filterList.dummyFilters[index].isSelected
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 20,
                     ),
                   ),

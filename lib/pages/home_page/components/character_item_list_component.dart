@@ -1,18 +1,23 @@
+import 'package:desafio_2/data/the_office_character_mock.dart';
 import 'package:flutter/material.dart';
 
-class PetItemListComponent extends StatefulWidget {
-  const PetItemListComponent({super.key});
+class CharacterItemListComponent extends StatefulWidget {
+  final TheOfficeCharacterMock characterList;
+
+  const CharacterItemListComponent({super.key, required this.characterList});
 
   @override
-  State<PetItemListComponent> createState() => _PetItemListComponentState();
+  State<CharacterItemListComponent> createState() =>
+      _CharacterItemListComponentState();
 }
 
-class _PetItemListComponentState extends State<PetItemListComponent> {
+class _CharacterItemListComponentState
+    extends State<CharacterItemListComponent> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 50,
+        itemCount: widget.characterList.dummyCharacters.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {},
@@ -25,17 +30,20 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                 horizontal: 25,
                 vertical: 10,
               ),
-              height: 130,
+              height: 115,
               child: Row(
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    height: 110,
-                    width: 110,
+                    height: 100,
+                    width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      image: const DecorationImage(
-                        image: AssetImage('assets/filhote.jpg'),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          widget.characterList.dummyCharacters[index]
+                              .imageAssetPath,
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -44,10 +52,10 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Sparky',
-                        style: TextStyle(
-                          fontSize: 25,
+                      Text(
+                        widget.characterList.dummyCharacters[index].name,
+                        style: const TextStyle(
+                          fontSize: 23,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF2E2D2B),
                         ),
@@ -55,9 +63,9 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                       const SizedBox(
                         height: 9,
                       ),
-                      const Text(
-                        'Golden Retriever',
-                        style: TextStyle(
+                      Text(
+                        widget.characterList.dummyCharacters[index].breed,
+                        style: const TextStyle(
                           fontSize: 15,
                           color: Color(0xFF686766),
                         ),
@@ -65,9 +73,10 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                       const SizedBox(
                         height: 6,
                       ),
-                      const Text(
-                        'Female, 8 months old',
-                        style: TextStyle(
+                      Text(
+                        widget.characterList.dummyCharacters[index].sex +
+                            widget.characterList.dummyCharacters[index].age,
+                        style: const TextStyle(
                           fontSize: 15,
                           color: Color(0xFFB5B5B5),
                         ),
@@ -76,15 +85,16 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                         height: 15,
                       ),
                       Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.location_on_sharp,
                             color: Color(0xFFFF5F50),
                             size: 15,
                           ),
                           Text(
-                            '2.5 km away',
-                            style: TextStyle(
+                            widget
+                                .characterList.dummyCharacters[index].location,
+                            style: const TextStyle(
                               fontSize: 15,
                               color: Color(0xFFB8B8B8),
                             ),
@@ -97,11 +107,28 @@ class _PetItemListComponentState extends State<PetItemListComponent> {
                   Container(
                     margin: const EdgeInsets.only(bottom: 65, right: 5),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite_border,
-                        color: Color(0xFFBABABA),
-                      ),
+                      icon:
+                          widget.characterList.dummyCharacters[index].isSelected
+                              ? const Icon(
+                                  Icons.favorite,
+                                  color: Color(0xFFFF5F50),
+                                  size: 25,
+                                )
+                              : const Icon(
+                                  Icons.favorite_border,
+                                  color: Color(0xFFBABABA),
+                                  size: 25,
+                                ),
+                      onPressed: () {
+                        setState(
+                          () {
+                            widget.characterList.dummyCharacters[index]
+                                    .isSelected =
+                                !widget.characterList.dummyCharacters[index]
+                                    .isSelected;
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
