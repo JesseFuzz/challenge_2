@@ -30,13 +30,13 @@ class _CharacterItemListComponentState
                 horizontal: 25,
                 vertical: 10,
               ),
-              height: 130,
+              height: 115,
               child: Row(
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    height: 110,
-                    width: 110,
+                    height: 100,
+                    width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
