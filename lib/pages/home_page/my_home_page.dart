@@ -1,6 +1,5 @@
 import 'package:desafio_2/pages/home_page/components/character_item_list_component.dart';
 import 'package:flutter/material.dart';
-
 import '../../data/the_office_character_mock.dart';
 import '../../data/the_office_filter_mock.dart';
 import 'components/app_bar.dart';
