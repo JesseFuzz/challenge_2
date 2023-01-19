@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyAdoptButtonComponent extends StatelessWidget {
-  const MyAdoptButtonComponent({super.key});
+class DetailsPageAdoptButton extends StatelessWidget {
+  const DetailsPageAdoptButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MyAdoptButtonComponent extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 2),
               child: Icon(
-                Icons.favorite,
+                Icons.pets,
                 color: Colors.white,
                 size: 30,
               ),

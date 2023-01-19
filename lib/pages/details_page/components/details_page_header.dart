@@ -12,7 +12,6 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20),
-      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
