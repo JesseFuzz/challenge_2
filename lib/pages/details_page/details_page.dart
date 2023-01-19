@@ -1,4 +1,5 @@
 import 'package:desafio_2/pages/details_page/components/details_page_app_bar.dart';
+import 'package:desafio_2/pages/details_page/components/details_page_header.dart';
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -16,9 +17,7 @@ class _DetailsPageState extends State<DetailsPage> {
         preferredSize: Size.fromHeight(70),
         child: DetailsPageAppBar(),
       ),
-      body: Center(
-        child: Text('Details Page'),
-      ),
+      body: DetailsPageHeader(),
     );
   }
 }

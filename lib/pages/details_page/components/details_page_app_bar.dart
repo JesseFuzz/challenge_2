@@ -16,11 +16,14 @@ class DetailsPageAppBar extends StatelessWidget {
         ),
       ),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.favorite_border,
-            color: Colors.red,
+        Container(
+          margin: const EdgeInsets.only(right: 15),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.favorite_border,
+              color: Colors.red,
+            ),
           ),
         ),
       ],
