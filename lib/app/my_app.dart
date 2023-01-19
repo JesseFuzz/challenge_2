@@ -1,7 +1,6 @@
 import 'package:desafio_2/pages/details_page/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../pages/home_page/my_home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

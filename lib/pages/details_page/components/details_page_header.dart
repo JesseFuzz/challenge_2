@@ -76,7 +76,7 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
                 height: 10,
               ),
               const Text(
-                '8 months old',
+                'Female, 8 months old',
                 style: TextStyle(
                   color: Colors.black87,
                   fontWeight: FontWeight.bold,

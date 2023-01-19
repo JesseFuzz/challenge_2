@@ -21,7 +21,7 @@ class DetailsPageAppBar extends StatelessWidget {
           child: IconButton(
             onPressed: () {},
             icon: const Icon(
-              Icons.favorite_border,
+              Icons.favorite,
               color: Colors.red,
             ),
           ),
