@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../models/the_office_filter_model.dart';
+import '../models/pet_filter_model.dart';
 
-class TheOfficeFilterMock {
-  List<CharacterFilterModel> dummyFilters = [
-    CharacterFilterModel(
+class PetFilterMock {
+  List<PetFilterModel> dummyFilters = [
+    PetFilterModel(
       type: '',
       icon: const Icon(Icons.settings),
     ),
-    CharacterFilterModel(
+    PetFilterModel(
       type: 'Dogs',
       icon: const Icon(Icons.pets),
     ),
-    CharacterFilterModel(
+    PetFilterModel(
       type: 'Cats',
       icon: const Icon(Icons.pets),
     ),
-    CharacterFilterModel(
+    PetFilterModel(
       type: 'Birds',
       icon: const Icon(Icons.pets),
     ),
-    CharacterFilterModel(
+    PetFilterModel(
       type: 'other',
       icon: const Icon(Icons.pets),
     ),

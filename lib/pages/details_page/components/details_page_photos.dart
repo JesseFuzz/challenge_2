@@ -1,13 +1,45 @@
+import 'package:desafio_2/data/pet_mock.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/pet_model.dart';
+
 class DetailsPagePhotos extends StatefulWidget {
-  const DetailsPagePhotos({super.key});
+  final PetModel petModel;
+  final PetMock petMock;
+
+  const DetailsPagePhotos({
+    super.key,
+    required this.petModel,
+    required this.petMock,
+  });
 
   @override
   State<DetailsPagePhotos> createState() => _DetailsPagePhotosState();
 }
 
 class _DetailsPagePhotosState extends State<DetailsPagePhotos> {
+  // Color convertColor(BackgroundColor backgroundColor) {
+  //   switch (backgroundColor) {
+  //     case BackgroundColor.green:
+  //       return Colors.green;
+
+  //     case BackgroundColor.blue:
+  //       return Colors.blue;
+
+  //     case BackgroundColor.yellow:
+  //       return Colors.yellow;
+
+  //     case BackgroundColor.orange:
+  //       return Colors.orange;
+
+  //     case BackgroundColor.pink:
+  //       return Colors.pink;
+
+  //     case BackgroundColor.purple:
+  //       return Colors.purple;
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,11 +67,11 @@ class _DetailsPagePhotosState extends State<DetailsPagePhotos> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: const Image(
+                  child: Image(
                     height: 70,
                     width: 50,
                     fit: BoxFit.cover,
-                    image: AssetImage('assets/franca.png'),
+                    image: AssetImage(widget.petModel.imageAssetPath),
                   ),
                 );
               },
@@ -54,11 +86,12 @@ class _DetailsPagePhotosState extends State<DetailsPagePhotos> {
                     width: 350,
                     height: 350,
                     decoration: BoxDecoration(
-                      color: Colors.yellow,
+                      color: Color(int.parse('0xFF${widget.petModel.color}')),
+                      // convertColor(widget.petModel.backgroundColor),
                       borderRadius: BorderRadius.circular(170),
                     ),
                     child: Image.asset(
-                      'assets/franca.png',
+                      widget.petModel.imageAssetPng,
                       alignment: Alignment.bottomLeft,
                       width: 500,
                       height: 500,

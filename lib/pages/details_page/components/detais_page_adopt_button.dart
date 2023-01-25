@@ -9,9 +9,9 @@ class DetailsPageAdoptButton extends StatelessWidget {
       height: 76,
       width: 220,
       padding: const EdgeInsets.symmetric(vertical: 20),
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 251, 96, 49),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(64),
         ),
       ),

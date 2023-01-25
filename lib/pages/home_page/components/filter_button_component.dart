@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/the_office_filter_mock.dart';
+import '../../../data/pet_filter_mock.dart';
 
 class FilterButtonComponent extends StatefulWidget {
-  final TheOfficeFilterMock filterList;
+  final PetFilterMock filterList;
 
   const FilterButtonComponent({super.key, required this.filterList});
 
@@ -22,6 +22,7 @@ class _FilterButtonComponentState extends State<FilterButtonComponent> {
         scrollDirection: Axis.horizontal,
         itemCount: widget.filterList.dummyFilters.length,
         itemBuilder: (BuildContext context, int index) {
+          final pet = widget.filterList.dummyFilters[index];
           return Container(
             margin: const EdgeInsets.only(
               left: 27,
@@ -34,38 +35,37 @@ class _FilterButtonComponentState extends State<FilterButtonComponent> {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: widget.filterList.dummyFilters[index].isSelected
-                  ? const Color(0xFFFF5F50)
-                  : Colors.white,
+              color: pet.isSelected
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).primaryColor,
             ),
             child: InkWell(
               onTap: () {
                 setState(
                   () {
-                    widget.filterList.dummyFilters[index].isSelected =
-                        !widget.filterList.dummyFilters[index].isSelected;
+                    pet.isSelected = !pet.isSelected;
                   },
                 );
               },
               child: Row(
                 children: [
-                  if (widget.filterList.dummyFilters[index].isSelected)
+                  if (pet.isSelected)
                     Icon(
-                      widget.filterList.dummyFilters[index].icon.icon,
-                      color: Colors.white,
+                      pet.icon.icon,
+                      color: Theme.of(context).primaryColor,
                     )
                   else
                     Icon(
-                      widget.filterList.dummyFilters[index].icon.icon,
-                      color: Colors.grey,
+                      pet.icon.icon,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   const SizedBox(width: 5),
                   Text(
-                    widget.filterList.dummyFilters[index].type,
+                    pet.type,
                     style: TextStyle(
-                      color: widget.filterList.dummyFilters[index].isSelected
-                          ? Colors.white
-                          : Colors.black,
+                      color: pet.isSelected
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).colorScheme.tertiary,
                       fontSize: 20,
                     ),
                   ),

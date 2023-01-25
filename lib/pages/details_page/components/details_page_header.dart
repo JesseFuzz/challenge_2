@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../models/pet_model.dart';
+
 class DetailsPageHeader extends StatefulWidget {
-  const DetailsPageHeader({super.key});
+  final PetModel petModel;
+  const DetailsPageHeader({super.key, required this.petModel});
 
   @override
   State<DetailsPageHeader> createState() => _DetailsPageHeaderState();
@@ -10,6 +13,8 @@ class DetailsPageHeader extends StatefulWidget {
 class _DetailsPageHeaderState extends State<DetailsPageHeader> {
   @override
   Widget build(BuildContext context) {
+    // final petModel = ModalRoute.of(context)?.settings.arguments as PetModel;
+
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: Row(
@@ -18,23 +23,16 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Sparky',
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                ),
+              Text(
+                widget.petModel.name,
+                style: Theme.of(context).textTheme.headline4,
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                'Golden Retriever',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                ),
+              Text(
+                widget.petModel.breed,
+                style: Theme.of(context).textTheme.subtitle2,
               ),
               const SizedBox(
                 height: 10,
@@ -42,21 +40,18 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
               Row(
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       Icon(
                         Icons.location_on,
-                        color: Color(0xFFFF5F51),
+                        color: Theme.of(context).colorScheme.primary,
                         size: 18,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(
-                        '2.5 kms away',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.grey,
-                        ),
+                        widget.petModel.location,
+                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                     ],
                   ),
@@ -74,12 +69,9 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                'Female, 8 months old',
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold,
-                ),
+              Text(
+                widget.petModel.sex + widget.petModel.age,
+                style: Theme.of(context).textTheme.subtitle2,
               ),
               const SizedBox(
                 height: 30,

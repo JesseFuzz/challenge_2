@@ -6,13 +6,15 @@ class DetailsPageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       elevation: 0,
       leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: Color(0xFF686766),
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
       actions: [
@@ -20,9 +22,9 @@ class DetailsPageAppBar extends StatelessWidget {
           margin: const EdgeInsets.only(right: 15),
           child: IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.favorite,
-              color: Colors.red,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ),
