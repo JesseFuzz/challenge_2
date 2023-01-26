@@ -28,7 +28,7 @@ class DetailsPageAppBar extends StatelessWidget {
           ),
           margin: EdgeInsets.only(
             right: screenSize.width * (26 / 375),
-            top: screenSize.width * (10 / 375),
+            top: screenSize.width * (15 / 375),
           ),
           child: IconButton(
             onPressed: () {},

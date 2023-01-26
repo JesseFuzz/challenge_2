@@ -30,19 +30,28 @@ class _DetailsPageState extends State<DetailsPage> {
         preferredSize: Size.fromHeight(70),
         child: DetailsPageAppBar(),
       ),
-      body: Column(
-        children: [
-          DetailsPageHeader(petModel: petModel),
-          SizedBox(
-            height: screenSize.width * (37 / 375),
+      body: SizedBox(
+        height: screenSize.height,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              DetailsPageHeader(petModel: petModel),
+              SizedBox(
+                height: screenSize.width * (37 / 375),
+              ),
+              SizedBox(
+                height: screenSize.width * (360 / 375),
+                child:
+                    DetailsPagePhotos(petModel: petModel, petMock: PetMock()),
+              ),
+              DetailsPageAbout(petModel: petModel),
+              const Align(
+                alignment: Alignment.bottomRight,
+                child: DetailsPageAdoptButton(),
+              ),
+            ],
           ),
-          DetailsPagePhotos(petModel: petModel, petMock: PetMock()),
-          DetailsPageAbout(petModel: petModel),
-          const Align(
-            alignment: Alignment.bottomRight,
-            child: DetailsPageAdoptButton(),
-          ),
-        ],
+        ),
       ),
     );
   }
