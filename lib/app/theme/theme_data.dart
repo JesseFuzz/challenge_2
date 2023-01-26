@@ -29,7 +29,7 @@ class PetThemeData {
         subtitle2: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
-          color: Colors.black87,
+          color: Colors.grey,
         ),
       ),
     ),

@@ -42,36 +42,59 @@ class _DetailsPagePhotosState extends State<DetailsPagePhotos> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Expanded(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(10),
-            width: 100,
-            height: 350,
-            // color: Colors.black,
+            width: screenSize.width * (72 / 375),
+            height: screenSize.width * (338 / 375),
+            margin: EdgeInsets.only(
+              left: screenSize.width * (26 / 375),
+            ),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  // Color.fromARGB(0, 255, 255, 255),
+                  Colors.white,
+                  Colors.orange
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topRight,
+              ),
+            ),
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  margin: const EdgeInsets.only(
-                    left: 2,
-                    bottom: 20,
+                  height: screenSize.width * (72 / 375),
+                  margin: EdgeInsets.only(
+                    bottom: screenSize.width * (16 / 375),
+                    // top: screenSize.width * (36 / 375),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 2,
-                      color: const Color(0xFFE9E9E9),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(0, 255, 255, 255),
+                        Colors.white,
+                        Colors.red
+                      ],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomCenter,
                     ),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      width: 3,
+                      color: Theme.of(context).backgroundColor,
+                    ),
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.circular(16),
                   ),
                   child: Image(
-                    height: 70,
-                    width: 50,
-                    fit: BoxFit.cover,
-                    image: AssetImage(widget.petModel.imageAssetPath),
+                    height: screenSize.width * 0.192, //72
+                    width: screenSize.width * 0.192,
+                    fit: BoxFit.fitHeight,
+                    image: AssetImage(widget.petModel.imageAssetPng),
                   ),
                 );
               },
@@ -83,18 +106,18 @@ class _DetailsPagePhotosState extends State<DetailsPagePhotos> {
                 Positioned(
                   right: -90,
                   child: Container(
-                    width: 350,
-                    height: 350,
+                    width: screenSize.width * 0.928, //348
+                    height: screenSize.width * 0.928,
                     decoration: BoxDecoration(
                       color: Color(int.parse('0xFF${widget.petModel.color}')),
                       // convertColor(widget.petModel.backgroundColor),
-                      borderRadius: BorderRadius.circular(170),
+                      borderRadius: BorderRadius.circular(174),
                     ),
                     child: Image.asset(
                       widget.petModel.imageAssetPng,
                       alignment: Alignment.bottomLeft,
-                      width: 500,
-                      height: 500,
+                      width: screenSize.width * (348 / 375),
+                      height: screenSize.width * (348 / 375),
                     ),
                   ),
                 ),

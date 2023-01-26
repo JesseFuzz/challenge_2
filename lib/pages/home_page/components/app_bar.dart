@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({super.key});
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(105);
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -26,7 +27,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 'Location',
                 style: Theme.of(context).textTheme.subtitle2,
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: screenSize.width * 0.0213), //8
               Text(
                 'São Paulo, Brasil',
                 style: Theme.of(context).textTheme.headline5,

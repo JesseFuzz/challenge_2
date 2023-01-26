@@ -13,29 +13,27 @@ class DetailsPageAbout extends StatefulWidget {
 class _DetailsPageAboutState extends State<DetailsPageAbout> {
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.only(
+        left: screenSize.width * 0.072, //26
+        right: screenSize.width * 0.08, //30
+        bottom: screenSize.width * 0.064, //24
+        top: screenSize.width * 0.010, //4
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'About',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
+            style: Theme.of(context).textTheme.headline5,
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: screenSize.width * 0.037, //14
           ),
           Text(
             widget.petModel.about,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.grey,
-              height: 1.5,
-            ),
+            style: Theme.of(context).textTheme.subtitle2,
           ),
         ],
       ),

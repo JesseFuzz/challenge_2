@@ -13,10 +13,13 @@ class DetailsPageHeader extends StatefulWidget {
 class _DetailsPageHeaderState extends State<DetailsPageHeader> {
   @override
   Widget build(BuildContext context) {
-    // final petModel = ModalRoute.of(context)?.settings.arguments as PetModel;
-
+    // final petModel = ModalRoute.of(context)!.settings.arguments! as PetModel;
+    final screenSize = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: EdgeInsets.only(
+        left: screenSize.width * (28 / 375),
+        right: screenSize.width * (26 / 375),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,15 +30,15 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
                 widget.petModel.name,
                 style: Theme.of(context).textTheme.headline4,
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: screenSize.width * (10 / 375),
               ),
               Text(
                 widget.petModel.breed,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: screenSize.width * (15 / 375),
               ),
               Row(
                 children: [
@@ -46,8 +49,8 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
                         color: Theme.of(context).colorScheme.primary,
                         size: 18,
                       ),
-                      const SizedBox(
-                        width: 5,
+                      SizedBox(
+                        width: screenSize.width * (8 / 375),
                       ),
                       Text(
                         widget.petModel.location,
@@ -64,17 +67,18 @@ class _DetailsPageHeaderState extends State<DetailsPageHeader> {
             children: [
               Transform.rotate(
                 angle: 180,
-                child: Icon(Icons.female, color: Colors.grey[350], size: 40),
+                child: Icon(
+                  Icons.female,
+                  color: Theme.of(context).colorScheme.secondary,
+                  size: 40,
+                ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: screenSize.width * (14 / 375),
               ),
               Text(
                 widget.petModel.sex + widget.petModel.age,
                 style: Theme.of(context).textTheme.subtitle2,
-              ),
-              const SizedBox(
-                height: 30,
               ),
             ],
           )

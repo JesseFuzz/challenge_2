@@ -3,7 +3,6 @@ import 'package:desafio_2/pages/details_page/components/details_page_app_bar.dar
 import 'package:desafio_2/pages/details_page/components/details_page_header.dart';
 import 'package:desafio_2/pages/details_page/components/details_page_photos.dart';
 import 'package:flutter/material.dart';
-
 import '../../data/pet_mock.dart';
 import '../../models/pet_model.dart';
 import 'components/detais_page_adopt_button.dart';
@@ -23,6 +22,7 @@ class _DetailsPageState extends State<DetailsPage> {
     // if (petModel != null) {
     //   pet = petModel as PetModel;
     final petModel = ModalRoute.of(context)!.settings.arguments! as PetModel;
+    final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -33,6 +33,9 @@ class _DetailsPageState extends State<DetailsPage> {
       body: Column(
         children: [
           DetailsPageHeader(petModel: petModel),
+          SizedBox(
+            height: screenSize.width * (37 / 375),
+          ),
           DetailsPagePhotos(petModel: petModel, petMock: PetMock()),
           DetailsPageAbout(petModel: petModel),
           const Align(
