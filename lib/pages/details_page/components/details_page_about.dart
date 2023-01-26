@@ -15,12 +15,14 @@ class _DetailsPageAboutState extends State<DetailsPageAbout> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: screenSize.width * (28 / 375)
-          // left: screenSize.width * 0.072, //26
-          // right: screenSize.width * 0.08, //30
-          // bottom: screenSize.width * 0.064, //24
-          // top: screenSize.width * 0.010, //4
-          ),
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width * (28 / 375)
+        // left: screenSize.width * 0.072, //26
+        // right: screenSize.width * 0.08, //30
+        // bottom: screenSize.width * 0.064, //24
+        // top: screenSize.width * 0.010, //4
+        ,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
