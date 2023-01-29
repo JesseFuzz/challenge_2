@@ -1,9 +1,9 @@
-import 'package:desafio_2/pages/home_page/components/character_item_list_component.dart';
 import 'package:flutter/material.dart';
-import '../../data/the_office_character_mock.dart';
-import '../../data/the_office_filter_mock.dart';
+import '../../data/pet_filter_mock.dart';
+import '../../data/pet_mock.dart';
 import 'components/app_bar.dart';
-import 'components/filter_button_component.dart';
+import 'components/filter_button_sliver.dart';
+import 'components/pet_list_sliver.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -18,16 +18,14 @@ class MyHomePage extends StatelessWidget {
         height: screenSize.height,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: const Color(0xFFF2F2F2),
+            borderRadius: BorderRadius.circular(12),
+            color: Theme.of(context).backgroundColor,
           ),
           child: Column(
             children: [
-              FilterButtonComponent(filterList: TheOfficeFilterMock()),
+              FilterButtonSliver(filterList: PetFilterMock()),
               const SizedBox(height: 10),
-              CharacterItemListComponent(
-                characterList: TheOfficeCharacterMock(),
-              ),
+              PetListSliver(petMock: PetMock()),
             ],
           ),
         ),

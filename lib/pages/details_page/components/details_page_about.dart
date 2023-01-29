@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../models/pet_model.dart';
+
 class DetailsPageAbout extends StatefulWidget {
-  const DetailsPageAbout({super.key});
+  final PetModel petModel;
+  const DetailsPageAbout({super.key, required this.petModel});
 
   @override
   State<DetailsPageAbout> createState() => _DetailsPageAboutState();
@@ -10,29 +13,29 @@ class DetailsPageAbout extends StatefulWidget {
 class _DetailsPageAboutState extends State<DetailsPageAbout> {
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width * (28 / 375)
+        // left: screenSize.width * 0.072, //26
+        // right: screenSize.width * 0.08, //30
+        // bottom: screenSize.width * 0.064, //24
+        // top: screenSize.width * 0.010, //4
+        ,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
             'About',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
+            style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(
-            height: 10,
+            height: screenSize.width * 0.037, //14
           ),
           Text(
-            "She is Shy at first, but wall warm up when she's comfortable. She is not a ranch dog that guards animals and property as she would rather be with her people; but she is comfortable around animals. She plays well with other dogs.",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.grey,
-              height: 1.5,
-            ),
+            widget.petModel.about,
+            style: Theme.of(context).textTheme.subtitle2,
           ),
         ],
       ),

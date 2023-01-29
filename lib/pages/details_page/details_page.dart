@@ -3,7 +3,8 @@ import 'package:desafio_2/pages/details_page/components/details_page_app_bar.dar
 import 'package:desafio_2/pages/details_page/components/details_page_header.dart';
 import 'package:desafio_2/pages/details_page/components/details_page_photos.dart';
 import 'package:flutter/material.dart';
-
+import '../../data/pet_mock.dart';
+import '../../models/pet_model.dart';
 import 'components/detais_page_adopt_button.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -16,22 +17,41 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
+    // late final PetModel pet;
+    // final petModel = ModalRoute.of(context)?.settings.arguments;
+    // if (petModel != null) {
+    //   pet = petModel as PetModel;
+    final petModel = ModalRoute.of(context)!.settings.arguments! as PetModel;
+    final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: DetailsPageAppBar(),
       ),
-      body: Column(
-        children: const [
-          DetailsPageHeader(),
-          DetailsPagePhotos(),
-          DetailsPageAbout(),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: DetailsPageAdoptButton(),
+      body: SizedBox(
+        height: screenSize.height,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              DetailsPageHeader(petModel: petModel),
+              SizedBox(
+                height: screenSize.width * (37 / 375),
+              ),
+              SizedBox(
+                height: screenSize.width * (360 / 375),
+                child:
+                    DetailsPagePhotos(petModel: petModel, petMock: PetMock()),
+              ),
+              DetailsPageAbout(petModel: petModel),
+              const Align(
+                alignment: Alignment.bottomRight,
+                child: DetailsPageAdoptButton(),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CharacterFilterModel {
+class PetFilterModel {
   final String type;
   final Icon icon;
 
   bool isSelected = false;
 
-  CharacterFilterModel({
+  PetFilterModel({
     required this.type,
     required this.icon,
   });

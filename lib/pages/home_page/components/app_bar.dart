@@ -1,12 +1,14 @@
+import 'package:desafio_2/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({super.key});
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(105);
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -15,26 +17,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             iconSize: 40,
             onPressed: () {},
             icon: Image.asset(
-              'assets/menu.png',
+              AppAssets.menuIcon,
             ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 'Location',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Color.fromRGBO(0, 0, 0, 0.5),
-                ),
+                style: Theme.of(context).textTheme.subtitle2,
               ),
-              SizedBox(height: 5),
+              SizedBox(height: screenSize.width * 0.0213), //8
               Text(
                 'São Paulo, Brasil',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline5,
               )
             ],
           ),

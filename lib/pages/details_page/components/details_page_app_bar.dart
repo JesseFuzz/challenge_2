@@ -5,24 +5,36 @@ class DetailsPageAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       elevation: 0,
       leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: Color(0xFF686766),
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
       actions: [
         Container(
-          margin: const EdgeInsets.only(right: 15),
+          height: screenSize.width * (44 / 375),
+          width: screenSize.width * (44 / 375),
+          decoration: BoxDecoration(
+            color: Colors.deepOrange.withOpacity(0.4),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          margin: EdgeInsets.only(
+            right: screenSize.width * (26 / 375),
+            top: screenSize.width * (15 / 375),
+          ),
           child: IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.favorite,
-              color: Colors.red,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ),

@@ -5,14 +5,14 @@ class DetailsPageAdoptButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
-      height: 76,
-      width: 220,
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 251, 96, 49),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(64),
+      height: screenSize.width * 0.213, //80
+      width: screenSize.width * 0.586, //220
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(55),
         ),
       ),
       alignment: Alignment.center,
@@ -20,24 +20,22 @@ class DetailsPageAdoptButton extends StatelessWidget {
         //alignment: Alignment.center,
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
-            Padding(
-              padding: EdgeInsets.only(bottom: 2),
-              child: Icon(
-                Icons.pets,
-                color: Colors.white,
-                size: 30,
-              ),
+          children: [
+            Icon(
+              Icons.pets,
+              color: Theme.of(context).primaryColor,
+              size: 30,
             ),
             SizedBox(
-              width: 20,
+              width: screenSize.width * 0.048, //18
             ),
             Text(
               'ADOPT',
+              //mantive pois é a única com fonte branca e o resto é black e grey
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
               ),
               textAlign: TextAlign.center,
             ),
