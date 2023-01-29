@@ -13,6 +13,7 @@ class FilterButtonSliver extends StatefulWidget {
 class _FilterButtonSliverState extends State<FilterButtonSliver> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final screenSize = MediaQuery.of(context).size;
     return SizedBox(
       height: screenSize.width * 0.2,
@@ -38,8 +39,8 @@ class _FilterButtonSliverState extends State<FilterButtonSliver> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: pet.isSelected
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).primaryColor,
+                        ? theme.colorScheme.primary
+                        : theme.primaryColor,
                   ),
                   child: InkWell(
                     onTap: () {
@@ -54,7 +55,7 @@ class _FilterButtonSliverState extends State<FilterButtonSliver> {
                         if (pet.isSelected)
                           Icon(
                             pet.icon.icon,
-                            color: Theme.of(context).primaryColor,
+                            color: theme.primaryColor,
                           )
                         else
                           Icon(

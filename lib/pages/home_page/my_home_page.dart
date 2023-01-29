@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../data/pet_filter_mock.dart';
 import '../../data/pet_mock.dart';
 import 'components/app_bar.dart';
@@ -27,9 +26,6 @@ class MyHomePage extends StatelessWidget {
               FilterButtonSliver(filterList: PetFilterMock()),
               const SizedBox(height: 10),
               PetListSliver(petMock: PetMock()),
-              // PetItemListComponent(
-              //   petList: PetMock(),
-              // ),
             ],
           ),
         ),
